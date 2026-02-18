@@ -1,0 +1,23 @@
+.header-component{
+  background-color: rgb(38, 37, 37);
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-image{
+  display: flex;
+  align-items: center;
+}
+.header-image img {
+  height: 30px;
+  filter: brightness(0) invert(1);
+}
+
+.header-description{
+  font-size: 30px;
+  color: white;
+  font-weight: bold;
+}

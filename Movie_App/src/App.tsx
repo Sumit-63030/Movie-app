@@ -1,13 +1,16 @@
 
+// import { useEffect, useState } from 'react'
 import './App.css'
+import Header from './components/Header'
+// import axios from 'axios';
 
 function App() {
 
-    console.log(import.meta.env.VITE_TMDB_API_KEY);
+
 
   return (
     <>
-     
+    <Header/>
     </>
   )
 }
