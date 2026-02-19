@@ -11,15 +11,19 @@ const Footer = () => {
   ]
   return (
     <div className='footer-container'>
-     {data.map((item , index) => (
-      <button key={index} className='footer-btn'>
-        <span className='footer-icon'>{item.icon}</span>
-        <span className='footer-icon'>{item.name}</span>
-      </button>
-     ))}
-      
+
+    <div className="footer-links">
+      {data.map((item , index) => (
+        <button key={index} className='footer-btn'>
+          <span className='footer-icon'>{item.icon}</span>
+          <span className='footer-icon'>{item.name}</span>
+        </button>
+      ))}
+    </div>
+    <div className="footer-text">Made by : Sumit Dharmadhikari</div>
 
     </div>
+    
   )
 }
 

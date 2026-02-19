@@ -3,12 +3,19 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 70px;
   background-color: rgb(54, 48, 49); 
   display: flex;
+  flex-direction: column;
   justify-content: space-around; 
   align-items: center;
   z-index: 100; 
+  padding-top: 20px;
+}
+.footer-links {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 8px; 
 }
 
 .footer-btn {
@@ -24,6 +31,7 @@
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   flex: 1; 
+  
 }
 
 .footer-icon {
@@ -35,4 +43,5 @@
   font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
+  color: white;
 }
