@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import './Trending.css';
 import axios from 'axios';
+import Pagination from '../components/Pagination/Pagination';
+
 
 interface MovieItem {
   id: number;
@@ -14,23 +16,24 @@ interface MovieItem {
 
 const Trending = () => {
   const [state, setState] = useState<MovieItem[]>([]);
+  const [page, setPage] = useState(1);
 
-  
+
 
   useEffect(() => {
     const fetchTrending = async () => {
-    try {
-      const response = await axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=${import.meta.env.VITE_TMDB_API_KEY}`);
+      try {
+        const response = await axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=${import.meta.env.VITE_TMDB_API_KEY}&page=${page}`);
+        setState(response.data.results);
 
-      console.log(response.data.results);
-      setState(response.data.results);
-    } catch (error) {
-      console.log("Error fetching data", error)
+        window.scroll(0, 0);
+      } catch (error) {
+        console.log("Error fetching data", error)
+      }
+
     }
-
-  } 
     fetchTrending();
-  }, [])
+  }, [page]);
 
   return (
     <div className="trending-container">
@@ -46,10 +49,11 @@ const Trending = () => {
             </div>
           </div>
         ))}
-
-
       </div>
+      <Pagination page={page} setPage={setPage}/>
+
     </div>
+
   )
 }
 
