@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './Trending.css';
 import axios from 'axios';
 import Pagination from '../components/Pagination/Pagination';
+import { useSearchParams } from 'react-router-dom';
 
 
 interface MovieItem {
@@ -16,9 +17,12 @@ interface MovieItem {
 
 const Trending = () => {
   const [state, setState] = useState<MovieItem[]>([]);
-  const [page, setPage] = useState(1);
+  const [searchParams , setSearchParams] = useSearchParams();
 
-
+  const page = Number(searchParams.get('page')) || 1;
+  const setPage = (newPage : number) => {
+    setSearchParams({page:  newPage.toString()})
+  }
 
   useEffect(() => {
     const fetchTrending = async () => {
