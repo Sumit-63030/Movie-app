@@ -18,15 +18,14 @@ const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const page = Number(searchParams.get('page') || 1);
-  const genreId = searchParams.get('genre') || "";
-
+  const genreId = searchParams.get('movieGenre') || "";
   const setPage = (newPage: number) => {
-    setSearchParams({ genre: genreId, page: newPage.toString() })
+    setSearchParams({ movieGenre: genreId, page: newPage.toString() });
   }
 
   const setGenre = (id: string) => {
-    setSearchParams({ genre: id, page: "1" })
-  }
+    setSearchParams({ movieGenre: id, page: "1" });
+  };
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -51,7 +50,7 @@ const Movies = () => {
     <div className='movies-container'>
       <h2 className='page-title'>Discover Movies</h2>
 
-      <Genre genreId={genreId} setGenre={setGenre} />
+      <Genre genreId={genreId} setGenre={setGenre} type="movie" />
       <div className="movies-grid">
         {state && state.map((item) => (
           <div className="movie-card" key={item.id}>
