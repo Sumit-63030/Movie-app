@@ -14,7 +14,7 @@ const Pagination = ({page , setPage} : PaginationProps) => {
   };
 
   const Next = () => {
-    if(page < 10)
+    if(page < 500)
     {
       setPage(page + 1);
     }

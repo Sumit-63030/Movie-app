@@ -3,6 +3,7 @@ import './Movies.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Pagination from '../components/Pagination/Pagination';
+import Genre from '../components/Genre/Genre';
 
 interface MovieItem {
   id: number;
@@ -23,6 +24,9 @@ const Movies = () => {
     setSearchParams({ genre: genreId, page: newPage.toString() })
   }
 
+  const setGenre = (id: string) => {
+    setSearchParams({ genre: id, page: "1" })
+  }
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -45,11 +49,16 @@ const Movies = () => {
 
   return (
     <div className='movies-container'>
-        <h2 className='page-title'>Discover Movies</h2>
+      <h2 className='page-title'>Discover Movies</h2>
+
+      <Genre genreId={genreId} setGenre={setGenre} />
       <div className="movies-grid">
         {state && state.map((item) => (
-          <div className="movie-card" key = {item.id}>
-            <img src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt="" className='poster' />
+          <div className="movie-card" key={item.id}>
+            <img src={item.poster_path
+              ? `https://image.tmdb.org/t/p/w500/${item.poster_path}`
+              : "https://via.placeholder.com/500x750?text=No+Poster+Available"}
+              alt={item.title} className='poster' />
             <b className='title'>{item.title}</b>
             <div className="subtitle">
               <span>Movie</span>
@@ -58,9 +67,9 @@ const Movies = () => {
           </div>
         ))}
       </div>
-          <Pagination setPage={setPage} page={page}/>
+      <Pagination setPage={setPage} page={page} />
     </div>
-    
+
   )
 }
 
