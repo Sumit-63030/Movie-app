@@ -1,0 +1,38 @@
+.error-container {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+ 
+}
+
+.error-code {
+  font-size: 6rem;
+  margin: 0;
+}
+
+.error-text {
+  margin: 10px 0;
+}
+
+.error-desc {
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+.home-button {
+  padding: 10px 20px;
+  background-color: #222;
+  border: 1px solid #555;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+
+.home-button:hover {
+  background-color: #333;
+}
