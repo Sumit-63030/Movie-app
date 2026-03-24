@@ -1,8 +1,10 @@
 .tv-container {
   padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.page-title {
+.tv-page-title {
   text-align: center;
   color: white;
   margin: 20px 0;
@@ -10,39 +12,103 @@
 
 .tv-movies-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 20px;
+  width: 100%;
   max-width: 1200px;
   margin: auto;
   padding-bottom: 60px;
+  box-sizing: border-box;
 }
 
-.movie-card {
+.tv-card {
   display: flex;
   flex-direction: column;
   background-color: #1a1a1a;
   border-radius: 8px;
   overflow: hidden;
   color: white;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  transition: transform 0.2s ease;
 }
 
-.poster {
+.tv-card:hover {
+  transform: scale(1.03);
+}
+
+.tv-poster {
   width: 100%;
-  height: 350px;
+  aspect-ratio: 2 / 3;
   object-fit: cover;
 }
 
-
-.title {
+.tv-title {
   font-size: 0.95rem;
   padding: 10px;
 }
 
-
-.subtitle {
+.tv-subtitle {
   display: flex;
   justify-content: space-between;
   padding: 0 10px 10px;
   font-size: 0.8rem;
   color: #aaa;
+}
+
+@media (min-width: 1024px) {
+  .tv-container{
+    padding-bottom: 80px;
+  }
+}
+@media (max-width: 1024px) {
+  .tv-container{
+    padding-bottom: 80px;
+  }
+  .tv-movies-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .tv-container{
+    padding-bottom: 80px;
+  }
+  .tv-movies-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .tv-poster {
+    height: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tv-container {
+    padding: 12px;
+    padding-bottom: 80px; 
+  }
+
+  .tv-movies-grid {
+    gap: 10px;
+  }
+
+  .tv-title {
+    font-size: 0.8rem;
+    padding: 6px 8px;
+  }
+
+  .tv-subtitle {
+    font-size: 0.7rem;
+    padding: 0 8px 8px;
+    flex-direction: column;
+    gap: 2px;
+  }
+}
+
+@media (max-width: 360px) {
+  .tv-movies-grid {
+    grid-template-columns: 1fr;
+  }
 }

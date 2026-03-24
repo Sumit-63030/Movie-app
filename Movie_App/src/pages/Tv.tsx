@@ -51,11 +51,11 @@ const Tv = () => {
 
   return (
     <div className="tv-container">
-      <h2 className='page-title'>TV Series</h2>
+      <h2 className='tv-page-title'>TV Series</h2>
       <Genre genreId={genreId} setGenre={setGenre} type='tv' />
       <div className="tv-movies-grid">
         {state && state.map((item) => (
-          <div className="movie-card" 
+          <div className="tv-card" 
           key={item.id}
           onClick={() => navigate(`/tv/${item.id}`)}
           >
@@ -64,10 +64,10 @@ const Tv = () => {
                 ? `https://image.tmdb.org/t/p/w500/${item.poster_path}`
                 : "https://via.placeholder.com/300x450"}
               alt={item.name}
-              className="poster"
+              className="tv-poster"
             />
-            <b className='title'>{item.name}</b>
-            <div className="subtitle">
+            <b className='tv-title'>{item.name}</b>
+            <div className="tv-subtitle">
               <span>TV Series</span>
               <span>{item.first_air_date}</span>
             </div>

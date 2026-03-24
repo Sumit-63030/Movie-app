@@ -38,7 +38,6 @@ const Details = () => {
 
   return (
     <div className="details-container">
-      {/* BACKDROP */}
       <div
         className="backdrop"
         style={{
@@ -47,7 +46,6 @@ const Details = () => {
       />
 
       <div className="details-content">
-        {/* POSTER */}
         <img
           src={
             data.poster_path
@@ -58,7 +56,6 @@ const Details = () => {
           className="details-poster"
         />
 
-        {/* INFO */}
         <div className="details-info">
           <h2>{data.title || data.name}</h2>
 

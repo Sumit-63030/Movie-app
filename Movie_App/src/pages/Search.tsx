@@ -51,7 +51,7 @@ const Search = () => {
   const navigate = useNavigate();
   return (
     <div className="search-container">
-      <h2 className="page-title">Search</h2>
+      <h2 className="search-page-title">Search</h2>
 
       <input
         type="text"
@@ -65,12 +65,12 @@ const Search = () => {
         <p className="no-results">No results found</p>
       )}
 
-      <div className="movies-grid">
+      <div className="search-movies-grid">
         {debouncedQuery &&
           results
             .filter((item) => item.media_type !== "person")
             .map((item) => (
-              <div className="movie-card" 
+              <div className="search-movie-card" 
               key={item.id}
               onClick={()=> navigate(`/${item.media_type}/${item.id}`)}
               >
@@ -81,11 +81,11 @@ const Search = () => {
                       : "https://via.placeholder.com/300x450"
                   }
                   alt=""
-                  className="poster"
+                  className="search-poster"
                 />
-                <b className="title">{item.title || item.name}</b>
+                <b className="search-title">{item.title || item.name}</b>
 
-                <div className="subtitle">
+                <div className="search-subtitle">
                   <span>{item.media_type.toUpperCase()}</span>
                   <span>{item.release_date || item.first_air_date}</span>
                 </div>

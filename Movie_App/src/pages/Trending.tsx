@@ -43,16 +43,16 @@ const Trending = () => {
 
   return (
     <div className="trending-container">
-      <h2 className='page-title'>Trending Today</h2>
+      <h2 className='trending-page-title'>Trending Today</h2>
       <div className="trending-grid">
         {state && state.map((item: MovieItem) => (
-          <div className="movie-card" 
+          <div className="trending-movie-card" 
           key={item.id}
           onClick={() => navigate(`/${item.media_type}/${item.id}`)}
           >
-            <img src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt="" className='poster' />
-            <b className='title'>{item.title || item.name}</b>
-            <div className="subtitle">
+            <img src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt="" className='trending-poster' />
+            <b className='trending-title'>{item.title || item.name}</b>
+            <div className="trending-subtitle">
               <span>{item.media_type == "tv" ? "TV Series" : "Movie"}</span>
               <span>{item.release_date || item.first_air_date}</span>
             </div>

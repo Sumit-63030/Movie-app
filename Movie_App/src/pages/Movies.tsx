@@ -50,21 +50,21 @@ const Movies = () => {
 
   return (
     <div className='movies-container'>
-      <h2 className='page-title'>Discover Movies</h2>
+      <h2 className='movie-page-title'>Discover Movies</h2>
 
       <Genre genreId={genreId} setGenre={setGenre} type="movie" />
       <div className="movies-grid">
         {state && state.map((item) => (
-          <div className="movie-card"
+          <div className="movies-movie-card"
            key={item.id}
            onClick={() => navigate(`/movie/${item.id}`)}
            >
             <img src={item.poster_path
               ? `https://image.tmdb.org/t/p/w500/${item.poster_path}`
               : "https://via.placeholder.com/500x750?text=No+Poster+Available"}
-              alt={item.title} className='poster' />
-            <b className='title'>{item.title}</b>
-            <div className="subtitle">
+              alt={item.title} className='movie-poster' />
+            <b className='movie-title'>{item.title}</b>
+            <div className="movie-subtitle">
               <span>Movie</span>
               <span>{item.release_date}</span>
             </div>

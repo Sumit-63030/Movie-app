@@ -6,7 +6,7 @@
   align-items: center;
   color: white;
   text-align: center;
- 
+  padding: 20px;
 }
 
 .error-code {
@@ -35,4 +35,10 @@
 
 .home-button:hover {
   background-color: #333;
+}
+
+@media (max-width: 480px) {
+  .error-code {
+    font-size: 4rem;
+  }
 }

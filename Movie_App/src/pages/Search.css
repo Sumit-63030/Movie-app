@@ -1,14 +1,16 @@
 .search-container {
   padding: 20px;
+  padding-bottom: 30px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.page-title {
+.search-page-title {
   text-align: center;
   color: white;
   margin: 20px 0;
 }
 
-/* 🔍 Search input */
 .search-input {
   display: block;
   margin: 0 auto 20px auto;
@@ -27,37 +29,46 @@
   color: #888;
 }
 
-/* grid */
-.movies-grid {
+.search-movies-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 20px;
+  width: 100%;
   max-width: 1200px;
   margin: auto;
   padding-bottom: 60px;
+  box-sizing: border-box;
 }
 
-.movie-card {
+.search-movie-card {
   display: flex;
   flex-direction: column;
   background-color: #1a1a1a;
   border-radius: 8px;
   overflow: hidden;
   color: white;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  transition: transform 0.2s ease;
 }
 
-.poster {
+.search-movie-card:hover {
+  transform: scale(1.03);
+}
+
+.search-poster {
   width: 100%;
-  height: 350px;
+  aspect-ratio: 2 / 3;
   object-fit: cover;
 }
 
-.title {
+.search-title {
   font-size: 0.95rem;
   padding: 10px;
 }
 
-.subtitle {
+.search-subtitle {
   display: flex;
   justify-content: space-between;
   padding: 0 10px 10px;
@@ -65,30 +76,78 @@
   color: #aaa;
 }
 
-/* pagination */
-.pagination-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.page-button {
-  padding: 8px 16px;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  background-color: #333;
-  color: white;
-}
-
-.page-button:hover {
-  background-color: #555;
-}
-
-/* no results */
 .no-results {
   text-align: center;
   color: #aaa;
   margin-top: 20px;
+}
+
+@media (min-width: 1024px) {
+  .search-container{
+    padding: 12px;
+    padding-bottom: 80px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .search-container {
+    padding: 12px;
+    padding-bottom: 80px;
+  }
+  .search-input {
+    width: 70%;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .search-container {
+    padding: 12px;
+    padding-bottom: 80px;
+  }
+  .search-input {
+    width: 80%;
+  }
+
+  .search-movies-grid {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-container {
+    padding: 12px;
+    padding-bottom: 80px;
+  }
+
+  .search-input {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .search-movies-grid {
+    gap: 10px;
+  }
+
+  .search-title {
+    font-size: 0.8rem;
+    padding: 6px 8px;
+  }
+
+  .search-subtitle {
+    font-size: 0.7rem;
+    padding: 0 8px 8px;
+    flex-direction: column;
+    gap: 2px;
+  }
+}
+
+@media (max-width: 360px) {
+  .search-input {
+    width: 95%;
+  }
+
+  .search-movies-grid {
+    grid-template-columns: 1fr;
+  }
 }

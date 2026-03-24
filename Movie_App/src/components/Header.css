@@ -1,4 +1,4 @@
-.header-component{
+.header-component {
   background-color: rgb(38, 37, 37);
   padding: 30px;
   display: flex;
@@ -8,17 +8,33 @@
   cursor: pointer;
 }
 
-.header-image{
+.header-image {
   display: flex;
   align-items: center;
 }
+
 .header-image img {
   height: 30px;
   filter: brightness(0) invert(1);
 }
 
-.header-description{
+.header-description {
   font-size: 30px;
   color: white;
   font-weight: bold;
+}
+
+@media (max-width: 480px) {
+  .header-component {
+    padding: 18px;
+    gap: 12px;
+  }
+
+  .header-image img {
+    height: 22px;
+  }
+
+  .header-description {
+    font-size: 22px;
+  }
 }
