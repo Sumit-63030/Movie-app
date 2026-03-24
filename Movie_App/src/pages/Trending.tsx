@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './Trending.css';
 import axios from 'axios';
 import Pagination from '../components/Pagination/Pagination';
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 
 interface MovieItem {
@@ -39,12 +39,17 @@ const Trending = () => {
     fetchTrending();
   }, [page]);
 
+  const navigate = useNavigate();
+
   return (
     <div className="trending-container">
       <h2 className='page-title'>Trending Today</h2>
       <div className="trending-grid">
         {state && state.map((item: MovieItem) => (
-          <div className="movie-card" key={item.id}>
+          <div className="movie-card" 
+          key={item.id}
+          onClick={() => navigate(`/${item.media_type}/${item.id}`)}
+          >
             <img src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt="" className='poster' />
             <b className='title'>{item.title || item.name}</b>
             <div className="subtitle">

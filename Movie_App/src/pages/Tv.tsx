@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './Tv.css';
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 import Genre from '../components/Genre/Genre';
 import Pagination from '../components/Pagination/Pagination';
@@ -47,6 +47,7 @@ const Tv = () => {
     fetchTvSeries();
   }, [page, genreId]);
 
+  const navigate = useNavigate();
 
   return (
     <div className="tv-container">
@@ -54,7 +55,10 @@ const Tv = () => {
       <Genre genreId={genreId} setGenre={setGenre} type='tv' />
       <div className="tv-movies-grid">
         {state && state.map((item) => (
-          <div className="movie-card" key={item.id}>
+          <div className="movie-card" 
+          key={item.id}
+          onClick={() => navigate(`/tv/${item.id}`)}
+          >
             <img
               src={item.poster_path
                 ? `https://image.tmdb.org/t/p/w500/${item.poster_path}`

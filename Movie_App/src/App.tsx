@@ -10,6 +10,7 @@ import Movies from './pages/Movies'
 import Tv from './pages/Tv'
 import Search from './pages/Search'
 import Error from './pages/Error'
+import Details from './pages/Details'
 const  App = () =>{
 
 
@@ -23,6 +24,8 @@ const  App = () =>{
     <Route path = "/tv" element = {<Tv/>}/>
     <Route path = "/search" element = {<Search />}/>
     <Route path = "*" element = {<Error />}/>
+    <Route path = "/:type/:id" element = {<Details />}/>
+
     </Routes>
     <Footer />
     

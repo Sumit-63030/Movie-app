@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Search.css';// 
 import Pagination from '../components/Pagination/Pagination';   
+import { useNavigate } from 'react-router-dom';
 
 interface SearchItem {
   id: number;
@@ -46,7 +47,8 @@ const Search = () => {
 
     fetchSearch();
   }, [debouncedQuery, page]);
-
+  
+  const navigate = useNavigate();
   return (
     <div className="search-container">
       <h2 className="page-title">Search</h2>
@@ -68,7 +70,10 @@ const Search = () => {
           results
             .filter((item) => item.media_type !== "person")
             .map((item) => (
-              <div className="movie-card" key={item.id}>
+              <div className="movie-card" 
+              key={item.id}
+              onClick={()=> navigate(`/${item.media_type}/${item.id}`)}
+              >
                 <img
                   src={
                     item.poster_path

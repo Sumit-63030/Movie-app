@@ -1,4 +1,4 @@
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import './Movies.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -44,7 +44,9 @@ const Movies = () => {
     }
 
     fetchMovies();
-  }, [page, genreId])
+  }, [page, genreId]);
+
+  const navigate = useNavigate();
 
   return (
     <div className='movies-container'>
@@ -53,7 +55,10 @@ const Movies = () => {
       <Genre genreId={genreId} setGenre={setGenre} type="movie" />
       <div className="movies-grid">
         {state && state.map((item) => (
-          <div className="movie-card" key={item.id}>
+          <div className="movie-card"
+           key={item.id}
+           onClick={() => navigate(`/movie/${item.id}`)}
+           >
             <img src={item.poster_path
               ? `https://image.tmdb.org/t/p/w500/${item.poster_path}`
               : "https://via.placeholder.com/500x750?text=No+Poster+Available"}
