@@ -83,7 +83,7 @@
 }
 
 @media (min-width: 1024px) {
-  .search-container{
+  .search-container {
     padding: 12px;
     padding-bottom: 80px;
   }
@@ -94,8 +94,14 @@
     padding: 12px;
     padding-bottom: 80px;
   }
+
   .search-input {
     width: 70%;
+  }
+
+  .search-movies-grid {
+    grid-template-columns: repeat(3, 1fr);
+
   }
 }
 
@@ -105,11 +111,13 @@
     padding: 12px;
     padding-bottom: 80px;
   }
+
   .search-input {
     width: 80%;
   }
 
   .search-movies-grid {
+    grid-template-columns: repeat(2, 1fr);
     gap: 15px;
   }
 }
@@ -126,6 +134,7 @@
   }
 
   .search-movies-grid {
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
   }
 

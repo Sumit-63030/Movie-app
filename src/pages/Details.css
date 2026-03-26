@@ -2,8 +2,9 @@
   color: white;
   min-height: 100vh;
   position: relative;
-
-  padding-top: 80px; 
+  padding-top: 80px;
+  padding-bottom: calc(var(--footer-height) + 16px);
+  box-sizing: border-box;
 }
 
 .backdrop {
@@ -17,7 +18,6 @@
   top: 0;
   left: 0;
 }
-
 
 .details-content {
   position: relative;
@@ -33,31 +33,37 @@
   width: 260px;
   border-radius: 12px;
   flex-shrink: 0;
+  object-fit: cover;
 }
-
 
 .details-info {
   flex: 1;
+  min-width: 0;
 }
 
 .details-info h2 {
   font-size: 2.2rem;
   margin-bottom: 10px;
+  line-height: 1.2;
+  word-break: break-word;
 }
 
 .rating {
   margin-bottom: 10px;
   color: gold;
+  font-size: 1rem;
 }
 
 .date {
   margin-bottom: 20px;
   color: #ccc;
+  font-size: 0.95rem;
 }
 
 .overview {
   line-height: 1.7;
   max-width: 600px;
+  font-size: 1rem;
 }
 
 .loading {
@@ -66,60 +72,108 @@
   color: white;
 }
 
+/* Tablet */
 @media (max-width: 900px) {
   .details-content {
     gap: 25px;
   }
-
   .details-poster {
     width: 220px;
   }
-
   .details-info h2 {
     font-size: 1.8rem;
   }
 }
 
+/* Mobile landscape / small tablet */
 @media (max-width: 768px) {
+  .details-container {
+    padding-top: 60px;
+  }
+  .backdrop {
+    height: 35vh;
+  }
   .details-content {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 25px 16px;
+    padding: 20px 16px;
+    gap: 20px;
   }
-
   .details-poster {
-    width: 200px;
+    width: 180px;
+    border-radius: 10px;
   }
-
   .details-info {
     width: 100%;
   }
-
   .details-info h2 {
     font-size: 1.5rem;
   }
-
   .overview {
     text-align: left;
     font-size: 0.95rem;
+    max-width: 100%;
   }
 }
 
+/* Mobile portrait */
 @media (max-width: 480px) {
+  .details-container {
+    padding-top: 50px;
+  }
   .backdrop {
-    height: 40vh;
+    height: 28vh;
   }
-
+  .details-content {
+    padding: 16px 12px;
+    gap: 16px;
+  }
   .details-poster {
-    width: 160px;
+    width: 140px;
+    border-radius: 8px;
   }
-
   .details-info h2 {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
   }
-
-  .overview {
+  .rating {
     font-size: 0.9rem;
+  }
+  .date {
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+  }
+  .overview {
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+  .details-container {
+    padding-top: 44px;
+  }
+  .backdrop {
+    height: 22vh;
+  }
+  .details-content {
+    padding: 12px 10px;
+    gap: 12px;
+  }
+  .details-poster {
+    width: 120px;
+    border-radius: 6px;
+  }
+  .details-info h2 {
+    font-size: 1.1rem;
+  }
+  .rating,
+  .date {
+    font-size: 0.82rem;
+  }
+  .overview {
+    font-size: 0.84rem;
+    line-height: 1.55;
   }
 }

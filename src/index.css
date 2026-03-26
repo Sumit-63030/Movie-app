@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --footer-height: 62px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: black;
+  min-height: 100%;
+  padding-bottom: var(--footer-height);
+}
+
+@media (max-width: 360px) {
+  :root {
+    --footer-height: 56px;
+  }
+}
