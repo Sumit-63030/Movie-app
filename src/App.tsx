@@ -13,8 +13,6 @@ import Error from './pages/Error'
 import Details from './pages/Details'
 const  App = () =>{
 
-
-
   return (
     <>
     <Header />
